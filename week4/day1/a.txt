@@ -1,0 +1,105 @@
+ 1) how to display the whole table from a table called customer
+ "SELECT *FROM customer"
+ 2)how to display CustomerName,City,postalcode FROM a table called Customer
+  "SELECT CustomerName,City,postalcode FROM Customer"
+3) how to display a distincit data which is unique in the list
+  "SELECT DISTINCT Country FROM Customer";  .....this selects city which are not repeated.
+4) to select all the customers from a specified catagory from the table called customer.
+  "SELECT * FROM Customer
+WHERE Country='Mexico'"...this displays all customers from a country called maxico.
+ "SELECT * FROM Customer
+WHERE CustomerID>3".....to displays customers with id greater than 3 with every information attached to it.
+5)to change the data we entered from a table
+ "update customer set Country='Uk' WHERE CustomerID='5'"....replaces the data which is in id 5 by the data we want
+which is uk in this case.
+6)to get a data which include both properties.
+  "SELECT * FROM Customer
+WHERE Country='UK'
+AND City='London'".....this one displays customers who are from country UK in the city of london.
+7) to get customers who fulfiled either properties.
+ "SELECT * FROM Customer
+WHERE City='Berlin'
+OR City='London'"....this displays the customers who are either from city berlin or london.
+8) to get a data of customers which fulfiling the first properties is must and the second is optional.
+  "SELECT * FROM Customer
+WHERE Country='Germany'
+AND (City='Berlin' OR City='München')"....the customer must be from the country Germany but the city could be either
+from the city berlin or city 'Munchen.
+9) to list the customers of the specified data in descending order
+  "SELECT * FROM Customer
+ORDER BY Country DESC"... this lists the customers in descending order from the first letters of the names of the countries.
+10) to list the customers depending on the name specified.
+"SELECT * FROM Customer
+ORDER BY City" ...to list customes orderd by the name of the cities.
+11) to provide customers in orderd way specified by the first mentioned data(priority) and then order it by the other
+mentioned data.
+"SELECT * FROM Customers
+ORDER BY Country, CustomerName;"..this display customers by order of their country names and after doing that it lists them
+by their name.
+12) to insert a new row in customer table.
+ "INSERT INTO Customers (Customerid,CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES (7,'meron','melerons','aynalem','mekelle','4006','Ethiopia');"...this will add a row in customerid which is 6 with info
+mentioned.
+13) to delete a customer from a table.
+   "DELETE FROM Customers
+WHERE CustomerName='Alfreds Futterkiste' AND ContactName='Maria Anders'"
+14) to delete the whole table.
+    DELETE FROM Customer;...this will delete the whole table.
+15) SQL injection is a method where  users can inject SQL commands into an SQL statement, via web page input.
+Injected SQL commands can alter SQL statement and compromise the security of a web application.
+ "SELECT CustomerID, customerName, City from customer WHERE CustomerID = 5 or 1=1"
+16)The SELECT TOP clause is used to specify the number of records to return.
+  "SELECT *
+FROM customer
+LIMIT 6"....this will display the top 6 customers with each information.
+17)sql like.
+"SELECT * FROM Customer
+WHERE City LIKE '%n'"...to display customers with city which ends by n.
+ SELECT * FROM Customer
+WHERE Country LIKE '%xi%'...to select customers with country xi in the middle.
+18) sql wildcard.
+  "SELECT * FROM Customers
+WHERE City LIKE '[a-c]%';"...displays all custumers living in a city starting from a to c.
+19) sql between.
+"SELECT * FROM customer
+WHERE CustomerID BETWEEN 2 AND 6"...display custumers whose id is betweeen 2 and 6.
+20)sql create table.
+   "CREATE TABLE Persons
+(
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255)
+);
+
+"...is used to create a table called person with above mentioned properties.
+21)sql join...uses to join two tables of specified element which have the same id.
+  "SELECT Powerful.CustomerID, Customer.CustomerName, Customer.Country
+FROM Powerful
+INNER JOIN Customers
+ON Powerful.CustomerID=Customers.CustomerID;"..displays the ids from the table called powerful and name and country 
+from the table called customer in one table.
+22)left join...this displays all data of the left side weather its matched with other table or not.but if the right 
+tables id donot match it will display null.
+  " SELECT powerful.FIRSTname, Customer.Country
+FROM powerful
+LEFT JOIN Customer
+ON powerful.CustomerID=Customer.CustomerID
+ORDER BY powerful.Firstname"...this will display all names from powerful table wheather their id matches with the customers 
+id or not.
+23)sql right join...this displays the datas of the right side wheather its id matches with left side or not.but if the 
+the left side id donot match it will display null.
+24) sql full outer join.
+  this is a combination of join+leftjoin+rightjoin.
+"SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL OUTER JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;" ...
+25) to make unions of two colomns.
+ "SELECT FIRSTname FROM powerful
+UNION
+SELECT City FROM Customer"...this will make a list of firstname from table powerful union city from customer table.
+26)
+  
